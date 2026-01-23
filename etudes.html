@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Parcours | Mamadou Ghando Baldé</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #3f3f42ca;
+            --accent: #14B8A6;
+            --dark: #1E293B;
+            --text: #334155;
+            --light-bg: #FFFFFF;
+            --soft-bg: #F8FAFC;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--soft-bg);
+            color: var(--dark);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .nav-container {
+            max-width: 1400px; margin: 0 auto; padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.8rem; font-weight: 900; background: linear-gradient(135deg, #102502d4, #14B8A6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav ul { list-style: none; display: flex; gap: 3rem; }
+        nav a { color: var(--text); text-decoration: none; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        /* Header */
+        .page-header {
+            padding: 150px 3rem 50px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #012b07b0, #14B8A6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Timeline */
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 70%;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            top: 100px;
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .year {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .timeline-content h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+
+        .dot {
+            width: 20px; height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container::before { left: 20px; }
+            .dot { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(even) { flex-direction: row; }
+            .timeline-content { width: calc(100% - 50px); margin-left: 50px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">PORTFOLIO</div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="etudes.html">Études</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html">Projets</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Mon Parcours <span class="gradient-text">Académique</span></h1>
+    </header>
+
+    <div class="timeline-container">
+        <div class="timeline-item" style="animation-delay: 0.2s;">
+            <div class="timeline-content">
+                <span class="year">2023 - 2024 (En cours)</span>
+                <h3>Licence 2 - Génie Informatique</h3>
+                <p>Approfondissement des réseaux, de la programmation orientée objet et de l'ingénierie des télécommunications.</p>
+            </div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 0.4s;">
+            <div class="timeline-content">
+                <span class="year">2022 - 2023</span>
+                <h3>Licence 1 - Tronc Commun</h3>
+                <p>Bases solides en mathématiques, algorithmique et découverte des architectures informatiques.</p>
+            </div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 0.6s;">
+            <div class="timeline-content">
+                <span class="year">Diplôme</span>
+                <h3>Baccalauréat Scientifique</h3>
+                <p>Option Sciences Mathématiques, obtenu avec une mention pour l'excellence académique.</p>
+            </div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</body>
+</html>
